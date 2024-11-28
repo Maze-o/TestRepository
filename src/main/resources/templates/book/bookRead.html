@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/common}">
-<th:block layout:fragment="script">
-<!--    <script defer type="text/javascript" th:src="@{}"></script>-->
-</th:block>
+
+<!-- CSS -->
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
 </th:block>
 
 <div layout:fragment="content">
     <div class="wrapper">
         <main class="layout">
             <h1>도서 단건 조회 페이지</h1>
-            <form style="width:400px" action="/book/add" method="post">
+            <div style="width:400px">
                 <div class="mb-3">
-                    <label>도서코드 : </label>
-                    <input name="bookCode" class="form-control" value="${bookDto.bookCode}" readonly/>
+                    <label>도서코드: </label>
+                    <input class="form-control" th:value="${bookDto.bookCode}" readonly />
                 </div>
                 <div class="mb-3">
-                    <label>도서명 : </label>
-                    <input name="bookName" class="form-control" value="${bookDto.bookName}" readonly/>
+                    <label>도서명: </label>
+                    <input class="form-control" th:value="${bookDto.bookName}" readonly />
                 </div>
                 <div class="mb-3">
-                    <label>출판사 : </label>
-                    <input name="publisher" class="form-control" value="${bookDto.publisher}" readonly/>
+                    <label>출판사: </label>
+                    <input class="form-control" th:value="${bookDto.publisher}" readonly />
                 </div>
                 <div class="mb-3">
-                    <label>ISBN : </label>
-                    <input name="isbn" class="form-control" value="${bookDto.isbn}" readonly/>
+                    <label>ISBN: </label>
+                    <input class="form-control" th:value="${bookDto.isbn}" readonly />
                 </div>
                 <div>
-                    <a href="/book/update?bookCode=${bookDto.bookCode}"
+                    <!-- 도서 수정 -->
+                    <a th:href="@{/book/bookUpdate/{bookCode}(bookCode=${bookDto.bookCode})}"
                        class="btn btn-success me-2">도서수정</a>
-                    <a href="/book/delete?bookCode=${bookDto.bookCode}"
-                       class="btn btn-success me-2">도서삭제</a>
-                    <button class="btn btn-secondary m-2">이전으로</button>
+
+                    <!-- 도서 삭제 -->
+                    <form th:action="@{/book/bookDelete}" method="post" style="display:inline;"
+                          onsubmit="return confirm('해당 도서를 삭제하시겠습니까?');">
+                        <!-- 삭제 요청에 bookCode를 포함하기 위해 hidden 필드 추가 -->
+                        <input type="hidden" name="bookCode" th:value="${bookDto.bookCode}" />
+                        <button type="submit" class="btn btn-danger">도서삭제</button>
+                    </form>
+
+                    <!-- 이전으로 -->
+                    <a th:href="@{/book/bookList}" class="btn btn-secondary m-2">이전으로</a>
                 </div>
-            </form>
+            </div>
         </main>
     </div>
+</div>
 
 </html>

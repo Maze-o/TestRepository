@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/common}">
-<th:block layout:fragment="script">
-<!--    <script defer type="text/javascript" th:src="@{}"></script>-->
-</th:block>
+
+<!-- 스타일 -->
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <style>
+        .index-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+        .menu {
+            margin-top: 20px;
+        }
+        .menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
 </th:block>
 
 <div layout:fragment="content">
-    <h1>본문 영역</h1>
+    <div class="index-container">
+        <!-- 페이지 제목 -->
+        <h1>도서 관리 시스템</h1>
+
+        <!-- 메뉴 -->
+        <div class="menu">
+            <a th:href="@{/book/bookList}">도서 목록</a>
+            <a th:href="@{/book/bookAdd}">도서 추가</a>
+        </div>
+    </div>
 </div>
 
 </html>
