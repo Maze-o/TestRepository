@@ -2,55 +2,76 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/common}">
 <th:block layout:fragment="script">
-<!--    <script defer type="text/javascript" th:src="@{}"></script>-->
+    <!--    <script defer type="text/javascript" th:src="@{}"></script>-->
 </th:block>
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
 </th:block>
 
 <div layout:fragment="content">
-    <section>
+    <section class="table-section">
         <!--/* 리스트 */-->
-        <table class="">
+        <table class="table booklist-table">
 
             <thead>
             <tr>
-<!--                <th><input type="checkbox"/></th>-->
-                <th>BOOKCODE</th>
-                <th>BOOKNAME</th>
-                <th>PUBLISHER</th>
-                <th>ISBN</th>
+                <!--                <th><input type="checkbox"/></th>-->
+                <th scope="col">BOOKCODE</th>
+                <th scope="col">BOOKNAME</th>
+                <th scope="col">PUBLISHER</th>
+                <th scope="col">ISBN</th>
 
             </tr>
             </thead>
             <tbody>
-            <tr th:if="${not #lists.isEmpty( posts )}" th:each="row, status : ${posts}">
-                <td><input type="checkbox"/></td>
-                <td th:text="${bookDto.bookCode}"></td>
-                <td class="tl"><a th:href="@{/book/read?bookCode=${bookCode}}" th:text="${bookDto.bookName}"></a></td>
-                <td th:text="${bookDto.publisher}"></td>
-                <td th:text="${bookDto.isbn}"></td>
+            <!--            <tr th:if="${not #lists.isEmpty( posts )}" th:each="row, status : ${posts}">-->
+            <!--                <th scope="row" th:text="${bookDto.bookCode}"></td>-->
+            <!--                <td class="tl"><a th:href="@{/book/read?bookCode=${bookCode}}" th:text="${bookDto.bookName}"></a></td>-->
+            <!--                <td th:text="${bookDto.publisher}"></td>-->
+            <!--                <td th:text="${bookDto.isbn}"></td>-->
+            <!--            </tr>-->
+
+            <tr>
+                <th scope="row">1</th>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
             </tr>
 
-<!--            <tr th:unless="${not #lists.isEmpty( posts )}">-->
-<!--                <td colspan="5">-->
-<!--                    <div class="no_data_msg">검색된 결과가 없습니다.</div>-->
-<!--                </td>-->
-<!--            </tr>-->
+            <tr>
+                <th scope="row">5</th>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <th scope="row">17</th>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <th scope="row">13</th>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+
+
+            <!--            <tr th:unless="${not #lists.isEmpty( posts )}">-->
+            <!--                <td colspan="5">-->
+            <!--                    <div class="no_data_msg">검색된 결과가 없습니다.</div>-->
+            <!--                </td>-->
+            <!--            </tr>-->
             </tbody>
         </table>
 
-        <!--/* 페이지네이션 */-->
-<!--        <div class="paging">-->
-<!--            <a href="#" class="page_bt first">첫 페이지</a><a href="#" class="page_bt prev">이전 페이지 그룹</a>-->
-<!--            <p><span class="on">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a></p>-->
-<!--            <a href="#" class="page_bt next">다음 페이지 그룹</a><a href="#" class="page_bt last">마지막 페이지</a>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash;/* 버튼 */&ndash;&gt;-->
-<!--        <p class="btn_set tr">-->
-<!--            <a th:href="@{/post/write.do}" class="btns btn_st3 btn_mid">글쓰기</a>-->
-<!--        </p>-->
     </section>
 
 </div>

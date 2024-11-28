@@ -6,12 +6,12 @@
 </th:block>
 <th:block layout:fragment="css">
     <link rel="stylesheet" th:href="@{/css/common.css}"/>
-</th:block>
 
+</th:block>
 <div layout:fragment="content" class="content">
-    <main class="layout">
-        <h1>도서 등록 페이지</h1>
-        <form style="width:400px" action="/book/add" method="post">
+    <main class="layout bookadd-container">
+        <h1 style="display:flex;justify-content: center;margin-top:50px; margin-bottom: 100px;">도서 등록 페이지</h1>
+        <form class="bookadd-form" action="/book/bookAdd" method="post">
             <div class="mb-3">
                 <label>도서코드 : </label>
                 <input name="bookCode" class="form-control"/>

@@ -27,6 +27,20 @@ public class BookController {
     // 단건 추가나 단건 수정은 JpaRespository의 save()함수로 처리 가능
     @PostMapping("/bookAdd")
     public String bookAdd_post(BookDto bookDto) {
+        // 도서 추가 시 예외처리 (빈칸만) DB에 대한 처리는 service로직에서 처리
+        // 도서이름이 비었을 시
+        if (!bookDto.getBookName().trim().isEmpty()) {
+
+        }
+        // 작성자가 비었을 시
+        if (!bookDto.getPublisher().trim().isEmpty()) {
+
+        }
+        // 도서코드가 비었을 시
+        if (!bookDto.getIsbn().trim().isEmpty()) {
+
+        }
+
 //      bookServiceImpl.bookAdd(bookDto);
         return "redirect:/book/bookList";
     }
@@ -68,6 +82,21 @@ public class BookController {
 
     @PostMapping("/bookUpdate")
     public String bookUpdate(BookDto bookDto, Model model) {
+
+        // 도서 수정 시 예외처리 (빈칸만) DB에 대한 처리는 service로직에서 처리
+        // 도서이름이 비었을 시
+        if (!bookDto.getBookName().trim().isEmpty()) {
+
+        }
+        // 작성자가 비었을 시
+        if (!bookDto.getPublisher().trim().isEmpty()) {
+
+        }
+        // 도서코드가 비었을 시
+        if (!bookDto.getIsbn().trim().isEmpty()) {
+
+        }
+
 //        BookDto dto = bookServiceImpl.updateBook(bookDto.getBookCode());
 //        model.addAttribute("bookDto", dto);
         return "redirect:/book/read";
