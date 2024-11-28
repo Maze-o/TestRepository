@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/common}">
+<th:block layout:fragment="script">
+<!--    <script defer type="text/javascript" th:src="@{}"></script>-->
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+</th:block>
+
+<div layout:fragment="content" class="content">
+    <main class="layout">
+        <h1>도서 등록 페이지</h1>
+        <form style="width:400px" action="/book/add" method="post">
+            <div class="mb-3">
+                <label>도서코드 : </label>
+                <input name="bookCode" class="form-control"/>
+            </div>
+            <div class="mb-3">
+                <label>도서명 : </label>
+                <input name="bookName" class="form-control"/>
+            </div>
+            <div class="mb-3">
+                <label>출판사 : </label>
+                <input name="publisher" class="form-control"/>
+            </div>
+            <div class="mb-3">
+                <label>ISBN : </label>
+                <input name="isbn" class="form-control"/>
+            </div>
+            <div>
+                <button class="btn btn-success">도서 등록</button>
+            </div>
+        </form>
+    </main>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/common}">
+<th:block layout:fragment="script">
+<!--    <script defer type="text/javascript" th:src="@{}"></script>-->
+</th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+</th:block>
+
+<div layout:fragment="content">
+    <h1>도서 수정 페이지</h1>
+    <form style="width:400px" action="/book/update" method="post">
+        <div class="mb-3">
+            <label for="">도서코드 : </label>
+            <input name="bookCode" class="form-control" value="${bookDto.bookCode}" readonly/>
+        </div>
+        <div class="mb-3">
+            <label for="">도서명 : </label>
+            <input name="bookName" class="form-control" value="${bookDto.bookName}" />
+        </div>
+        <div class="mb-3">
+            <label for="">출판사 : </label>
+            <input name="publisher" class="form-control" value="${bookDto.publisher}" />
+        </div>
+        <div class="mb-3">
+            <label for="">ISBN : </label>
+            <input name="isbn" class="form-control" value="${bookDto.isbn}" />
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success me-2">수정요청</button>
+            <a class="btn btn-secondary m-2">이전으로</a>
+        </div>
+    </form>
+</div>
+
+</html>
